@@ -7,7 +7,7 @@ public class MoveCommand extends Command {
     public boolean isMatch() {
         try {
             String[] array = this.command.split(",");
-            if (array.length == 2 && "M".equals(array[0])) {
+            if ("M".equals(array[0])) {
                 return true;
             }
         } catch (Exception ignored) {

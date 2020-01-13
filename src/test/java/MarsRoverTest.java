@@ -117,4 +117,23 @@ public class MarsRoverTest {
         Location location = marsRover.run("R");
         assertEquals(new Location(0, 0, Direction.S), location);
     }
+
+    @Test
+    public void should_init_and_move_3_times() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.run("2,2,E");
+        marsRover.run("M");
+        marsRover.run("M");
+
+        Location location = marsRover.run("M");
+        assertEquals(new Location(5, 2, Direction.E), location);
+    }
+
+    @Test
+    public void should_handle_command_list() {
+        MarsRover marsRover = new MarsRover();
+
+        Location location = marsRover.run("1,2,N M M L M R M M");
+        assertEquals(new Location(0, 6, Direction.N), location);
+    }
 }
