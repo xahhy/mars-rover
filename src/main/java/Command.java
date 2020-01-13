@@ -23,6 +23,9 @@ public class Command {
         if(new TurnLeftCommand(commandString).isMatch()){
             return new TurnLeftCommand(commandString);
         }
+        if(new TurnRightCommand(commandString).isMatch()){
+            return new TurnRightCommand(commandString);
+        }
         return new Command(commandString);
     }
 }

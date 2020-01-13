@@ -81,4 +81,40 @@ public class MarsRoverTest {
         Location location = marsRover.run("L");
         assertEquals(new Location(0, 0, Direction.N), location);
     }
+
+    @Test
+    public void should_turn_right_N() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.run("0,0,N");
+
+        Location location = marsRover.run("R");
+        assertEquals(new Location(0, 0, Direction.E), location);
+    }
+
+    @Test
+    public void should_turn_right_W() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.run("0,0,W");
+
+        Location location = marsRover.run("R");
+        assertEquals(new Location(0, 0, Direction.N), location);
+    }
+
+    @Test
+    public void should_turn_right_S() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.run("0,0,S");
+
+        Location location = marsRover.run("R");
+        assertEquals(new Location(0, 0, Direction.W), location);
+    }
+
+    @Test
+    public void should_turn_right_E() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.run("0,0,E");
+
+        Location location = marsRover.run("R");
+        assertEquals(new Location(0, 0, Direction.S), location);
+    }
 }
