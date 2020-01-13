@@ -20,6 +20,9 @@ public class Command {
         if(new MoveCommand(commandString).isMatch()){
             return new MoveCommand(commandString);
         }
+        if(new TurnLeftCommand(commandString).isMatch()){
+            return new TurnLeftCommand(commandString);
+        }
         return new Command(commandString);
     }
 }
