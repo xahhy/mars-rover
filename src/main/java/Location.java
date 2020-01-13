@@ -1,7 +1,7 @@
 public class Location {
-    private int x;
-    private int y;
-    private Direction direction;
+    public int x;
+    public int y;
+    public Direction direction;
 
     public Location(int x, int y, Direction direction) {
         this.x = x;
@@ -22,5 +22,14 @@ public class Location {
         if (!(obj instanceof Location)) return false;
         Location otherLocation = (Location) obj;
         return this.x == otherLocation.x && this.y == otherLocation.y && this.direction == otherLocation.direction;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "x=" + x +
+                ", y=" + y +
+                ", direction=" + direction +
+                '}';
     }
 }
