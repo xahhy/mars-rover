@@ -5,20 +5,11 @@ public class MoveCommand extends Command {
 
     @Override
     public boolean isMatch() {
-        try {
-            String[] array = this.command.split(",");
-            if ("M".equals(array[0])) {
-                return true;
-            }
-        } catch (Exception ignored) {
-
-        }
-        return false;
+        return "M".equals(this.command);
     }
 
     @Override
     public Location apply(Location currentLocation) {
-        String[] array = this.command.split(",");
         int x = currentLocation.x;
         int y = currentLocation.y;
         switch (currentLocation.direction) {

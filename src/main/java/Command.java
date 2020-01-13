@@ -1,3 +1,6 @@
+import java.security.cert.TrustAnchor;
+import java.util.stream.Stream;
+
 public class Command {
     protected final String command;
 

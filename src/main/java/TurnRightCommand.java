@@ -28,12 +28,6 @@ public class TurnRightCommand extends Command {
 
     @Override
     public boolean isMatch() {
-        try {
-            String[] array = this.command.split(",");
-            if ("R".equals(array[0])) return true;
-        } catch (Exception ignore) {
-
-        }
-        return false;
+        return "R".equals(this.command);
     }
 }

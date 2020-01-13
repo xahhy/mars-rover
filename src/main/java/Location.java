@@ -1,13 +1,9 @@
-public class Location {
-    public int x;
-    public int y;
-    public Direction direction;
+import java.util.Objects;
 
-    public Location(int x, int y, Direction direction) {
-        this.x = x;
-        this.y = y;
-        this.direction = direction;
-    }
+public class Location {
+    protected int x;
+    protected int y;
+    protected Direction direction;
 
     public Location(String location){
         String[] array = location.split(",");
@@ -16,12 +12,20 @@ public class Location {
         this.direction = Direction.valueOf(array[2]);
     }
 
+    public Location(int x, int y, Direction direction) {
+        this.x = x;
+        this.y = y;
+        this.direction = direction;
+    }
+
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null) return false;
-        if (!(obj instanceof Location)) return false;
-        Location otherLocation = (Location) obj;
-        return this.x == otherLocation.x && this.y == otherLocation.y && this.direction == otherLocation.direction;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return x == location.x &&
+                y == location.y &&
+                direction == location.direction;
     }
 
     @Override

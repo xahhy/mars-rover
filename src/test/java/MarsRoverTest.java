@@ -15,7 +15,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover();
         marsRover.run("0,0,N");
 
-        Location location = marsRover.run("M,1");
+        Location location = marsRover.run("M");
         assertEquals(new Location(0, 1, Direction.N), location);
     }
 
@@ -24,7 +24,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover();
         marsRover.run("0,0,S");
 
-        Location location = marsRover.run("M,1");
+        Location location = marsRover.run("M");
         assertEquals(new Location(0, -1, Direction.S), location);
     }
 
@@ -33,7 +33,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover();
         marsRover.run("0,0,E");
 
-        Location location = marsRover.run("M,1");
+        Location location = marsRover.run("M");
         assertEquals(new Location(1, 0, Direction.E), location);
     }
 
@@ -42,7 +42,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover();
         marsRover.run("0,0,W");
 
-        Location location = marsRover.run("M,1");
+        Location location = marsRover.run("M");
         assertEquals(new Location(-1, 0, Direction.W), location);
     }
 
