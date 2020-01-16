@@ -1,0 +1,3 @@
+enum Command{
+    Init, M
+}
