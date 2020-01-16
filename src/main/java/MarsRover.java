@@ -6,8 +6,11 @@ public class MarsRover {
     }
 
     public String accept(String commandString) {
-        return new CommandFactory().parse(commandString)
-                .apply(this);
+        for (String command : commandString.split(" ")) {
+            new CommandFactory().parse(command)
+                    .apply(this);
+        }
+        return location.toString();
     }
 
     public Location getLocation() {
@@ -51,6 +54,24 @@ public class MarsRover {
                 break;
             case S:
                 location.direction = Direction.E;
+                break;
+        }
+        return this;
+    }
+
+    public MarsRover turnRight() {
+        switch (location.direction) {
+            case W:
+                location.direction = Direction.N;
+                break;
+            case E:
+                location.direction = Direction.S;
+                break;
+            case N:
+                location.direction = Direction.E;
+                break;
+            case S:
+                location.direction = Direction.W;
                 break;
         }
         return this;
