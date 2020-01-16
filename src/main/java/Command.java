@@ -1,3 +1,3 @@
 enum Command{
-    Init, M
+    Init, M, L
 }

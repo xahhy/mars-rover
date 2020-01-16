@@ -38,4 +38,21 @@ public class MarsRover {
     }
 
 
+    public MarsRover turnLeft() {
+        switch (location.direction) {
+            case W:
+                location.direction = Direction.S;
+                break;
+            case E:
+                location.direction = Direction.N;
+                break;
+            case N:
+                location.direction = Direction.W;
+                break;
+            case S:
+                location.direction = Direction.E;
+                break;
+        }
+        return this;
+    }
 }

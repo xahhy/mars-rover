@@ -17,4 +17,12 @@ public class MarsRoverTest {
         String location = marsRover.accept("M");
         assertEquals("1,3,N", location);
     }
+
+    @Test
+    public void should_handle_turn_left_command() {
+        MarsRover marsRover = new MarsRover();
+        marsRover.accept("1,2,N");
+        String location = marsRover.accept("L");
+        assertEquals("1,2,W", location);
+    }
 }

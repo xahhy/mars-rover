@@ -15,6 +15,10 @@ public class CommandFactory {
             marsRover.init(Integer.valueOf(splitedCommand[0]), Integer.valueOf(splitedCommand[1]), Direction.valueOf(splitedCommand[2]));
             return marsRover.getLocation().toString();
         });
+        commandMap.put(Command.L, splitedCommand -> marsRover -> {
+            marsRover.turnLeft();
+            return marsRover.getLocation().toString();
+        });
     }
 
 
