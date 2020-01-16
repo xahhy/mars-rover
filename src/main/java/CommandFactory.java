@@ -1,32 +1,19 @@
 import java.util.HashMap;
-import java.util.List;
 import java.util.function.Function;
 
 public class CommandFactory {
-    private HashMap<Command, Function<String[], Function<MarsRover, String>>> commandMap;
+    private HashMap<Command, Function<String[], Function<Controller, RoverStatus>>> commandMap;
 
     public CommandFactory() {
         this.commandMap = new HashMap<>();
-        commandMap.put(Command.M, splitedCommand -> marsRover -> {
-            marsRover.move();
-            return marsRover.getLocation().toString();
-        });
-        commandMap.put(Command.Init, splitedCommand -> marsRover -> {
-            marsRover.init(Integer.valueOf(splitedCommand[0]), Integer.valueOf(splitedCommand[1]), Direction.valueOf(splitedCommand[2]));
-            return marsRover.getLocation().toString();
-        });
-        commandMap.put(Command.L, splitedCommand -> marsRover -> {
-            marsRover.turnLeft();
-            return marsRover.getLocation().toString();
-        });
-        commandMap.put(Command.R, splitedCommand -> marsRover -> {
-            marsRover.turnRight();
-            return marsRover.getLocation().toString();
-        });
+        commandMap.put(Command.M, splitedCommand -> Controller::move);
+        commandMap.put(Command.Init, splitedCommand -> controller -> controller.init(new RoverStatus(splitedCommand[0],splitedCommand[1],splitedCommand[2])));
+        commandMap.put(Command.L, splitedCommand -> Controller::turnLeft);
+        commandMap.put(Command.R, splitedCommand -> Controller::turnRight);
     }
 
 
-    public Function<MarsRover, String> parse(String commandString) {
+    public Function<Controller, RoverStatus> parse(String commandString) {
         String[] splitedCommand = commandString.split(",");
         Command command;
         if (splitedCommand.length == 3) {
