@@ -10,6 +10,7 @@ public class CommandFactory {
         commandMap.put(Command.Init, splitedCommand -> controller -> controller.init(new RoverStatus(splitedCommand[0],splitedCommand[1],splitedCommand[2])));
         commandMap.put(Command.L, splitedCommand -> Controller::turnLeft);
         commandMap.put(Command.R, splitedCommand -> Controller::turnRight);
+        commandMap.put(Command.B, splitedCommand -> controller -> controller.setBackwards(true));
     }
 
 

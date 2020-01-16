@@ -1,3 +1,3 @@
 public enum Direction {
-    N,S,E,W
+    N,W,S,E
 }
